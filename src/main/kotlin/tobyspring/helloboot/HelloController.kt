@@ -10,6 +10,7 @@ class HelloController(
 
     @GetMapping("/hello")
     fun hello(name: String): String {
+        check(name.isNotBlank())
         return helloService.sayHello(name)
     }
 }
