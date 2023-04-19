@@ -1,4 +1,4 @@
-package tobyspring.helloboot
+package tobyspring.config
 
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
@@ -7,4 +7,5 @@ import org.springframework.context.annotation.Configuration
 @Target(allowedTargets = [AnnotationTarget.TYPE, AnnotationTarget.CLASS])
 @Configuration
 @ComponentScan
-annotation class MySpringBootAnnotation
+@EnableMyAutoConfiguration
+annotation class MySpringBootApplication

@@ -1,8 +1,9 @@
 package tobyspring.helloboot
 
 import org.springframework.boot.runApplication
+import tobyspring.config.MySpringBootApplication
 
-@MySpringBootAnnotation
+@MySpringBootApplication
 class HellobootApplication
 
 fun main(args: Array<String>) {
