@@ -1,6 +1,6 @@
 package tobyspring.config.autoconfig
 
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory
+import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Condition
@@ -10,17 +10,17 @@ import org.springframework.core.type.AnnotatedTypeMetadata
 import tobyspring.config.MyAutoConfiguration
 
 @MyAutoConfiguration
-@Conditional(TomcatWebServerConfig.TomcatCondition::class)
-class TomcatWebServerConfig {
+@Conditional(JettyWebServerConfig.JettyCondition::class)
+class JettyWebServerConfig {
 
-    @Bean("tomcatWebServerFactory")
+    @Bean("jettyWebServerFactory")
     fun servletWebServerFactory(): ServletWebServerFactory {
-        return TomcatServletWebServerFactory()
+        return JettyServletWebServerFactory()
     }
 
-    internal class TomcatCondition : Condition {
+    internal class JettyCondition : Condition {
         override fun matches(context: ConditionContext, metadata: AnnotatedTypeMetadata): Boolean {
-            return false
+            return true
         }
     }
 }
