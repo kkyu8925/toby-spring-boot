@@ -4,5 +4,5 @@ import tobyspring.config.MyConfigurationProperties
 
 @MyConfigurationProperties(prefix = "server")
 data class ServerProperties(
-    val contextPath: String
+    val contextPath: String?
 )
