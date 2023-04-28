@@ -13,4 +13,9 @@ class HelloController(
         check(name.isNotBlank())
         return helloService.sayHello(name)
     }
+
+    @GetMapping("/count")
+    fun count(name: String): String {
+        return "$name: ${helloService.countOf(name)}"
+    }
 }

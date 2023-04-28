@@ -1,18 +1,18 @@
 package tobyspring.helloboot
 
 import org.springframework.boot.runApplication
+import org.springframework.jdbc.core.JdbcTemplate
 import tobyspring.config.MySpringBootApplication
+import javax.annotation.PostConstruct
 
 @MySpringBootApplication
-class HellobootApplication {
-
-//    @Bean
-//    fun applicationRunner(env: Environment): ApplicationRunner {
-//        return ApplicationRunner {
-//            val name = env.getProperty("my.name")
-//            println(name)
-//        }
-//    }
+class HellobootApplication(
+    private val jdbcTemplate: JdbcTemplate
+) {
+    @PostConstruct
+    fun init() {
+        jdbcTemplate.execute("create table if not exists hello(name varchar(50) primary key, count int)")
+    }
 }
 
 fun main(args: Array<String>) {
